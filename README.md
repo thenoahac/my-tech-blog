@@ -15,7 +15,9 @@ This app was created to allow a user to use a tech blog to discuss anything rela
 
 To use this app please use the following link to take you to the heroku page!
 
-- [Blog]()
+- [Blog](https://git.heroku.com/my-tech-blog1.git)
+
+If you have any questions or concerns, feel free to reach out to me on github!
 
 
 ## Composition
