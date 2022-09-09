@@ -15,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-    secret: 'super secret time',
+    secret: 'you arent allowed to see this :)',
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -41,5 +41,5 @@ app.get('/', (req,res) => {
 );
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening on 3001'));
+    app.listen(PORT, () => console.log('Server listening on PORT 3001!'));
   });
