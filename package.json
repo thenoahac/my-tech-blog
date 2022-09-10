@@ -1,4 +1,24 @@
 {
+  "name": "my-tech-blog",
+  "version": "1.0.0",
+  "description": "This app was created to allow a user to use a tech blog to discuss anything related to news in the tech industry while creating an account to save all the posts to.",
+  "main": "server.js",
+  "engines": {"node": "16.16"},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenoahac/my-tech-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thenoahac/my-tech-blog/issues"
+  },
+  "homepage": "https://github.com/thenoahac/my-tech-blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.5",
