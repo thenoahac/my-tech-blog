@@ -1,0 +1,16 @@
+{{#if posts.length}}
+<section class="postList">
+    {{#each posts as |post|}}
+    <section class="card mw-75">
+        <section class="card-header text-bg-green-200">
+            {{post.id.user_id.username}}
+        </section>
+        <section class="card-body">
+            <h5 class="card-title">{{post.id.post_name}}</h5>
+            <p class="card-text">{{post.id.post_content}}</p>
+        </section>
+        <section class="card-footer text-muted text-end border border-top-0 text-bg-white">
+            {{post.id.date_created}}
+        </section>
+    </section>
+</section>

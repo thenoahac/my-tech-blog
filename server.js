@@ -3,7 +3,7 @@ const exphbs = require('express-handlebars');
 const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
-const routes = require('./routes');
+const routes = require('./routes/API');
 const session = require('express-session');
 
 require('dotenv').config();

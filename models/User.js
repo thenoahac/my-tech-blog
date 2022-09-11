@@ -1,12 +1,12 @@
-const { Model, DataTypes } = require('sequelize');
+const {Model, DataTypes} = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-    checkPassword(loginPwd) {
-        return bcrypt.compareSync(loginPwd, this.password);
+    checkPassword(loginPass) {
+        return bcrypt.compareSync(loginPass, this.password);
     }
-}
+};
 
 User.init(
     {
@@ -16,7 +16,7 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -25,40 +25,36 @@ User.init(
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true
-            }
+                isEmail: true,
+            },
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8]
-            }
+                len: [8],
+            },
         },
-        blog_id: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            references: {
-                model: 'blog',
-                key: "blog_id"
-            }
-        }
     },
     {
         hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return newUserData
+            beforeCreate: async (newUserInfo) =>{
+                // read that 10 salt rounds recommended for password hashing
+                newUserInfo.password = await bcrypt.hash(newUserInfo.password, 10);
+                return newUserInfo;
             },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData
-            }
+            beforeUpdate: async (updateUserInfo) =>{
+                updateUserInfo.password = await bcrypt.hash(updateUserInfo.password, 10);
+                return updateUserInfo;
+            },
         },
+    // auto-pluralization is stopped with freeze table name. underscored turns names into snake-cased versions
+    
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        modelName: 'user'
+        underscored: true,
+        modelName: 'user',
     }
 );
 

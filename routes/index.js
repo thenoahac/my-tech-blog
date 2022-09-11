@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const userRoutes = require('./userRoutes.js');
-const blogRoutes = require('./blogRoutes.js');
+const userRoutes = require('./API/userRoutes.js');
+const blogRoutes = require('./API/postRoutes.js');
 const { User, blog } = require('../models');
 const { Op } = require('sequelize');
 

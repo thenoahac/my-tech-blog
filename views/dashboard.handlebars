@@ -1,0 +1,33 @@
+<section>
+    <h2>{{username}}'s Dashboard</h2>
+</section>
+<section>
+    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#newPostForm" aria-expanded="false" aria-controls="newPostForm">
+        Create New Post
+    </button>
+</section>
+<section class="collapse" id="newPostForm">
+    <section class="mb-3">
+        <label for="postTitle" class="form-label">Post Title</label>
+        <input type="text" class="form-control" id="postTitle">
+    </section>
+    <section class="mb-3">
+        <label for="postContent" class="form-label">Post Content</label>
+        <textarea class="form-control" id="postContent" rows="4"></textarea>
+    </section>
+</section>
+{{#if posts.length}}
+<section class="postList">
+    {{#each posts as |post|}}
+    <section class="row mb-2">
+        <section class="card mw-75">
+            <section class="card-body">
+                <h5 class="card-title">{{post.post_name}}</h4>
+                <p class="card-text">{{post.post_content}}</p>
+            </section>
+            <section class="card-footer">
+                <p class="card-footer text-muted text-end border border-top-0 text-bg-white2">{{post.date_created}}</p>
+            </section>
+        </section>
+    </section>
+</section>
